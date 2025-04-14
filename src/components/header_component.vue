@@ -2,7 +2,9 @@
   <nav class="navbar navbar-expand-lg custom-navbar shadow-sm">
     <div class="container">
       <router-link class="navbar-brand d-flex align-items-center" to="/">
-        <i class="bi bi-shop-window me-2 fs-3 text-warning"></i>
+        <img src="@/assets/logo.png" alt="Logo" class="logo me-2" />
+
+       
         <span class="brand-text">ElRo3B_Store</span>
       </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -34,7 +36,18 @@
   </script>
   
   <style scoped>
-  /* Magic gradient + transition */
+
+
+
+.logo {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+}
+
+
+
+
   .custom-navbar {
     background: linear-gradient(135deg, #0f2027, #064146, #144555);
     animation: gradientMove 10s ease infinite;

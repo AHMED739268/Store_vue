@@ -5,7 +5,7 @@ export const  productStore = defineStore('product', {
      
         //like data in optional object
         products:[],
-      
+        wishlist:[],
         
          }),
      //like computed properties in optional object    
@@ -69,9 +69,57 @@ export const  productStore = defineStore('product', {
             } catch (error) {
               console.error('❌ Failed to add product to wishlist:', error);
             }
+          },
+
+          async getallproductinwishlist() {
+            try {
+              const token = localStorage.getItem('token');
+              const response = await fetch('http://localhost:3000/allwishlist', {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'token': token
+                }
+              });
+          
+              if (!response.ok) {
+                throw new Error('Network response was not ok');
+              }
+          
+              const data = await response.json();
+              this.wishlist = data.wishlist;
+            } catch (error) {
+              console.error('❌ Failed to fetch wishlist:', error);
+            }
+
+          },
+          async deleteProductFromWishlist(productId) {
+            try {
+              const token = localStorage.getItem('token');
+              console.log('🔐 Token:', token);
+          
+              const response = await fetch(`http://localhost:3000/deletefromwishlist/${productId}`, {
+                method: 'DELETE',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'token': token
+                }
+              });
+          
+              console.log('🔍 Response status:', response.status, response.statusText);
+          
+              if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
+              }
+          
+              const data = await response.json();
+              console.log('✅ Product removed from wishlist:', data);
+          
+            } catch (error) {
+              console.error('❌ Failed to remove product from wishlist:', error);
+            }
           }
           
-
 
 
     }            
