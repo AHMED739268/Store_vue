@@ -18,12 +18,42 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/about"><i class="bi bi-info-circle me-1"></i> About</router-link>
           </li>
+        
+
+
+
+
+
+          <router-link class="nav-link position-relative" to="/cart">
+  <i class="bi bi-cart3 me-1"></i> Cart
+  <span
+    v-if="cartCount > 0"
+    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+  >
+    {{ cartCount }}
+  </span>
+</router-link>
+
+
+
+
+
+
+
+
+
+
+
+
           <li class="nav-item">
-            <router-link class="nav-link" to="/cart"><i class="bi bi-cart3 me-1"></i> Cart</router-link>
-          </li>
-          <li class="nav-item">
-          <router-link class="nav-link" to="/wishlist">  <i class="bi bi-heart me-1"></i> Wishlist</router-link>
-          </li>
+  <router-link class="nav-link position-relative" to="/wishlist">
+    <i class="bi bi-heart me-1"></i> Wishlist
+    <span v-if="wishlistCount > 0" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      {{ wishlistCount }}
+    </span>
+  </router-link>
+</li>
+
         </ul>
       </div>
     </div>
@@ -32,9 +62,21 @@
 
   
   <script setup>
- 
+   import { computed, onMounted } from 'vue';
+    import { productStore } from '../stores/productStore.js'
+
+ const store = productStore();
+const wishlistCount = computed(() => store.wishlist.length);
+const cartCount = computed(() => store.cart.length);
+
+onMounted(() => {
+  store.getallproductinwishlist();
+  store.fetchCart();
+});
+
+
   </script>
-  
+
   <style scoped>
 
 

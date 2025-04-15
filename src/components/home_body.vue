@@ -2,11 +2,11 @@
     <div class="container my-5">
       <div class="row g-4">
         <div class="col-md-4" v-for="product in store.products" :key="product._id">
-          <div class="card product-card h-100 shadow-sm" @click="goToDetails(product._id)" style="cursor: pointer;">
+          <div class="card product-card h-100 shadow-sm"  style="cursor: pointer;">
             <img :src="product.featuredImage" class="img card-img-top" alt="Product Image" />
             <div class="card-body d-flex flex-column justify-content-between">
               <div>
-                <h5 class="card-title">{{ product.name }}</h5>
+                <h5 class="card-title " @click="goToDetails(product._id)">{{ product.name }}</h5>
                 <p class="card-text text-white">Price: <strong>${{ product.price }}</strong></p>
                 <p class="card-text" :class="product.stock > 0 ? 'text-success' : 'text-danger'">
           {{ product.stock > 0 ? 'In Stock' : 'Out of Stock' }}
@@ -42,7 +42,7 @@
                 <button class="btn btn-outline-danger" @click="addToWishlist(product._id)">
                   <i class="fas fa-heart"></i>
                 </button>
-                <button class="btn btn-outline-primary" @click="addToCart(product)">
+                <button class="btn btn-outline-warning" @click="addToCart(product)">
                   <i class="fas fa-shopping-cart"></i>
                 </button>
               </div>
@@ -71,6 +71,10 @@ store.addProductToWishlist(productId)
 
 }
 
+function addToCart(product) {
+  store.addToCart(product); 
+  toast.success("✔️ Product added to cart!");
+}
 
 
 
@@ -82,7 +86,7 @@ store.addProductToWishlist(productId)
     border: none;
     border-radius: 16px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: linear-gradient(145deg, #2e2e2e, #1c1c1c);
+    background: linear-gradient(135deg, #093a63, #085f51);
     color: #f8f9fa;
   }
   
@@ -104,7 +108,10 @@ store.addProductToWishlist(productId)
   align-items: center;
 }
 .img{
+    padding-left: 70px;
+   padding-top: 30px;
     height: 200px;
+    width: 250px;
 }
 
   </style>
