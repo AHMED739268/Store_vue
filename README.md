@@ -87,19 +87,6 @@ npm install
 # Start the development server
 npm run dev
 
-📚 Learning Highlights
-
-This project reflects everything I've learned during my journey in full-stack development — from:
-
-    Building dynamic UI using Vue.js
-
-    Managing complex state with Pinia
-
-    Connecting to real backend APIs
-
-    Implementing JWT-based login/logout
-
-    Making the design responsive and interactive
 
 📬 Contact
 
