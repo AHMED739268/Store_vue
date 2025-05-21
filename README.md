@@ -46,6 +46,7 @@
 
 ## 📁 Project Structure
 vue-ecommerce/
+
 ├── src/
 │ ├── assets/
 │ ├── components/
@@ -104,6 +105,5 @@ This project reflects everything I've learned during my journey in full-stack de
 
 👤 Ahmed Mohamed Abdallah
 📧 a.m.abdalla.amin@gmail.com
-🔗 LinkedIn
-💻 GitHub
+
 
