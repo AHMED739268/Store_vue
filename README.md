@@ -5,7 +5,7 @@
 ![Pinia](https://img.shields.io/badge/Pinia-FAD000?style=for-the-badge&logo=pinia&logoColor=black)
 ![JWT Auth](https://img.shields.io/badge/Auth-JWT-blue?style=for-the-badge)
 ![Responsive](https://img.shields.io/badge/Mobile%20Friendly-Yes-success?style=for-the-badge)
-![License](https://img.shields.io/github/license/YOUR_USERNAME/YOUR_REPO_NAME?style=for-the-badge)
+
 
 > 🚀 Completed full-featured **E-Commerce web application** built with **Vue.js** for the frontend and **Node.js** for the backend.
 
